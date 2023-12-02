@@ -19,12 +19,15 @@ export default function MyCalendar(props){
     useEffect(() => getTrainings(), []);
 
     const getTrainings = () => {
+
+      const updatedTrainings = [...trainings];
+
         fetch(REST_URL)
             .then(response => response.json())
             .then(responseData => {
                 console.log("responseData" + responseData)
                 responseData.map(training => (
-                  trainings.push(
+                  updatedTrainings.push(
                   {
                   id: training.id,
                   title: training.activity, // Set title to the activity or provide a suitable property
@@ -36,6 +39,7 @@ export default function MyCalendar(props){
                 }
                 )
                 ));
+                setTrainings(updatedTrainings);
             })
             .catch(error => {
                 console.log(error)

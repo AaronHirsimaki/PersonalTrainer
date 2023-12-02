@@ -8,6 +8,7 @@ import Training from './components/training';
 import Customer from './components/customer';
 import Home from './components/home';
 import MyCalendar from './components/MyCalendar';
+import Stats from './components/Stats';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,11 +43,15 @@ function App() {
          <Tab value="MyCalendar"
          label="MyCalendar"></Tab>
 
+         <Tab value="Stats"
+         label="Stats"></Tab>
+
       </Tabs>
       {value === "Home" && <Home />}
       {value === "Customer" && <Customer />}
       {value === "Training" && <Training />}
       {value === "MyCalendar" && <MyCalendar />}
+      {value === "Stats" && <Stats />}
     </div>
   )
 }
